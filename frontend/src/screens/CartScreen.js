@@ -30,8 +30,8 @@ const CartScreen = ({ match, location, history }) => {
   }
 
   return (
-    <Row>
-      <Col md={8}>
+    <Col className='d-flex my-3' style={{flexFlow:"row"}} >
+      <div>
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
@@ -41,15 +41,15 @@ const CartScreen = ({ match, location, history }) => {
           <ListGroup variant='flush'>
             {cartItems.map((item) => (
               <ListGroup.Item key={item.product}>
-                <Row>
-                  <Col md={2}>
+                <div  style={{width:"100%",display:"flex", flexFlow:"row wrap"}}s>
+                  <Col md={2} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
-                  <Col md={3}>
+                  <Col md={3} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>${item.price}</Col>
-                  <Col md={2}>
+                  <Col md={2} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>${item.price}</Col>
+                  <Col md={2} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <Form.Control
                       as='select'
                       value={item.qty}
@@ -59,28 +59,32 @@ const CartScreen = ({ match, location, history }) => {
                         )
                       }
                     >
-                      {[...Array(item.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
+                      {[...Array(item.countInStock).keys()].map((x) =>(
+                       <option key={x + 1} value={x + 1}>
+                       {x + 1}
+                       </option>
+                      )
+                      )}
+                      {/* <option>1</option>
+                      <option>2</option>
+                      <option>3</option> */}
                     </Form.Control>
                   </Col>
-                  <Col md={2}>
+                  <Col md={2} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <Button
                       type='button'
-                      variant='light'
+                      style={{backgroundColor:"#24AEB1"}}
                       onClick={() => removeFromCartHandler(item.product)}
                     >
                       <i className='fas fa-trash'></i>
                     </Button>
                   </Col>
-                </Row>
+                </div>
               </ListGroup.Item>
             ))}
           </ListGroup>
         )}
-      </Col>
+      </div>
       <Col md={4}>
         <Card>
           <ListGroup variant='flush'>
@@ -97,6 +101,7 @@ const CartScreen = ({ match, location, history }) => {
             <ListGroup.Item>
               <Button
                 type='button'
+                style={{backgroundColor:"#24AEB1"}}
                 className='btn-block'
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
@@ -107,8 +112,8 @@ const CartScreen = ({ match, location, history }) => {
           </ListGroup>
         </Card>
       </Col>
-    </Row>
-  )
+    </Col>
+  ) 
 }
 
 export default CartScreen

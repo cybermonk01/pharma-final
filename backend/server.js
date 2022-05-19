@@ -1,17 +1,21 @@
 import path from "path";
-import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
+import express from "express";
 import colors from "colors";
 import morgan from "morgan";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.js";
+import cookieSession from "cookie-session";
+import passport from "passport";
+import passportSetup from "./passport.js";
+import authRoute from "./routes/auth.js";
 
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import cors from "cors";
-dotenv.config();
 
 connectDB();
 
@@ -22,7 +26,18 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(express.json());
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["jamesons"],
+    maxAge: 24 * 60 * 60 * 1000,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(cors());
+app.use("/auth", authRoute);
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);

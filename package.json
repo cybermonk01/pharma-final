@@ -16,8 +16,14 @@
   "author": "Jamesons",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.2",
+    "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
@@ -26,7 +32,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "passport": "^0.5.2",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0"

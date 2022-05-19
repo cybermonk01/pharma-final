@@ -90,7 +90,7 @@ const PlaceOrderScreen = ({ history }) => {
                 <ListGroup variant='flush'>
                   {cart.cartItems.map((item, index) => (
                     <ListGroup.Item key={index}>
-                      <Row>
+                      <div>
                         <Col md={1}>
                           <Image
                             src={item.image}
@@ -107,7 +107,7 @@ const PlaceOrderScreen = ({ history }) => {
                         <Col md={4}>
                           {item.qty} x ${item.price} = ${item.qty * item.price}
                         </Col>
-                      </Row>
+                      </div>
                     </ListGroup.Item>
                   ))}
                 </ListGroup>

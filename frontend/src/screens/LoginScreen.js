@@ -30,7 +30,7 @@ const LoginScreen = ({ location, history }) => {
   }
 
   return (
-    <FormContainer>
+    <div className='container' style={{flexFlow:"column", padding:"0px 25%"}}>
       <h1>Sign In</h1>
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
@@ -68,7 +68,7 @@ const LoginScreen = ({ location, history }) => {
           </Link>
         </Col>
       </Row>
-    </FormContainer>
+    </div>
   )
 }
 

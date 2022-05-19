@@ -25,6 +25,10 @@ const Header = () => {
     dispatch(logout());
   };
 
+  const google = () => {
+    window.open("http://localhost:5000/auth/google", "_self");
+  };
+
   return (
     <header>
       <Navbar
@@ -57,9 +61,7 @@ const Header = () => {
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
-                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={google}>Logout</NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">

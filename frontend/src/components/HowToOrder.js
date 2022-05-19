@@ -1,6 +1,6 @@
 // import { Divider } from "@mui/material";
 import React from "react";
-// import "./Order.css";
+import "./HowToOrder.css";
 
 const HowToOrder = () => {
   return (
@@ -8,10 +8,12 @@ const HowToOrder = () => {
       <div className="order">
         <div className="Heading">
           <h2>How to Order</h2>
+          <hr></hr>
         </div>
 
         <div className="Heading__Content">
           <h3 className="SubHeading__Text">Order Online</h3>
+          <hr></hr>
           {/* <Divider /> */}
 
           <div class="online">
@@ -48,18 +50,22 @@ const HowToOrder = () => {
           </div>
 
           <div class="video">
-            <iframe src="//www.dailymotion.com/embed/video/x6xb6hm?queue-enable=false"></iframe>
+            <iframe
+              className="videos"
+              src="//www.dailymotion.com/embed/video/x6xb6hm?queue-enable=false"
+            ></iframe>
           </div>
           <div className="Vedio__content">
             Our customer service representative Margaret gives you the{" "}
             <a href="https://www.dailymotion.com/video/x1291e9" target="_blank">
               guide to safely order prescription drugs
             </a>{" "}
-            from Canada Pharmacy Online.
+            from Canada Pharmacy.
           </div>
-
+          <hr></hr>
           <div class="phone">
             <h2>Order By Phone</h2>
+            <hr></hr>
             {/* <Divider /> */}
             <p>
               Call <span className="Phone__Text">+(161)62740771 </span> if you
@@ -78,9 +84,10 @@ const HowToOrder = () => {
               by faxing or mailing our customer sign-up forms.{" "}
             </p>
           </div>
-
+          <hr></hr>
           <div class="fax">
             <h2>Order By Mail or Fax</h2>
+            <hr></hr>
             {/* <Divider /> */}
             <p>
               To place an order by mail, fax or email, you can download and
@@ -104,6 +111,7 @@ const HowToOrder = () => {
           </div>
         </div>
       </div>
+      <hr></hr>
     </>
   );
 };

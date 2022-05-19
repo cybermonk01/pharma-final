@@ -1,0 +1,30 @@
+.button{
+
+    cursor: pointer;
+    width: 40%;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #1eabe0;
+    border: none;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.productImg{
+    min-width: 50%;
+    max-width: 100%;
+    margin-right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    max-height: 400px;
+}
+.productImg > img{
+    max-width:400px;
+    min-width:400px;
+}

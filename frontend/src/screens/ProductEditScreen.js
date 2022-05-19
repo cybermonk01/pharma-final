@@ -96,7 +96,7 @@ const ProductEditScreen = ({ match, history }) => {
       <Link to='/admin/productlist' className='btn btn-light my-3'>
         Go Back
       </Link>
-      <FormContainer>
+      <div className="container justify-content-center" style={{flexFlow: "column",padding: "0px 25%"}}>
         <h1>Edit Product</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
@@ -188,7 +188,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Button>
           </Form>
         )}
-      </FormContainer>
+      </div>
     </>
   )
 }

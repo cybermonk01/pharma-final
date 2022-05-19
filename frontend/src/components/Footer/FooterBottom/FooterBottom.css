@@ -1,6 +1,8 @@
 .footer-bottom {
   display: flex;
   text-align: center;
+  background: #FFFCF8;
+  /* color:white; */
 
   padding: 20px 500px;
   color: rgba(11, 18, 25, 0.5);

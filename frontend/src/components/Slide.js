@@ -29,11 +29,13 @@ const responsive = {
 const useStyle = makeStyles({
   component: {
     marginTop: 12,
-    background: "#ffffff",
+    background: "#F3F7FB",
   },
   deal: {
     padding: "15px 20px",
     display: "flex",
+    background: "#ffffff !important",
+
   },
   dealText: {
     fontSize: 22,
@@ -52,20 +54,22 @@ const useStyle = makeStyles({
   },
   Button: {
     marginLeft: "auto",
-    background: "#2874f0",
+    backgroundColor: "#24AEB1",
+    textEmphasisColor:"white" ,
     borderRadius: 2,
     fontSize: 13,
   },
   text: {
     fontSize: 14,
     marginRight: 5,
+    
   },
   wrapper: {
     padding: "35px 15px",
   },
 });
 
-const Slide = ({ timer, title }) => {
+const Slide = ({ timer, title,product }) => {
   const classes = useStyle();
   const timerURL =
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg";
@@ -92,7 +96,7 @@ const Slide = ({ timer, title }) => {
                 color="primary"
                 className={classes.Button}
               >
-                <Link to="/products"> View All</Link>
+                <Link to="/product" style={{color:"white"}}> View All</Link>
               </Button>
             </>
           )}
@@ -115,7 +119,7 @@ const Slide = ({ timer, title }) => {
           {products.map((product) => (
             <>
               {" "}
-              <Link to="/products/:${product.id}">
+              <Link to="/product">
                 <Box textAlign="center" className={classes.wrapper}>
                   <img src={product.url} className={classes.image} alt="" />
                   <Typography

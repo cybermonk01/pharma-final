@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Meta from '../components/Meta'
+import './ProductScreen.css'
 import {
   listProductDetails,
   createProductReview,
@@ -69,11 +70,25 @@ const ProductScreen = ({ history, match }) => {
       ) : (
         <>
           <Meta title={product.name} />
-          <Row>
-            <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
-            </Col>
-            <Col md={3}>
+          <div style={{display:'flex', flexFlow:"row wrap", gridGap:"4%"}}>
+            <div className='' >
+              <div className='productImg'>
+                <Image src={product.image} alt={product.name} fluid />
+              </div>
+              <div className="px-3 mx-1 d-flex">
+              <Button style={{
+                backgroundColor: "#24AEB1",
+              }} onClick={addToCartHandler}
+                className="button">Add To Cart</Button>
+
+              <Button style={{
+                backgroundColor: "#F5C400",
+              }} className="button" onClick={addToCartHandler}
+              >Buy Now</Button>
+              </div>
+            </div>
+            <Col md={3} style={{ borderLeft: "0.5px solid #24AEB1", position: "absolute", left: "45%" }}></Col>
+            <Col md={3} >
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
@@ -84,7 +99,7 @@ const ProductScreen = ({ history, match }) => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+                <ListGroup.Item style={{ color: "red" }}>Price: ${product.price}</ListGroup.Item>
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
@@ -135,7 +150,7 @@ const ProductScreen = ({ history, match }) => {
                   )}
 
                   <ListGroup.Item>
-                    <Button
+                    <Button style={{ backgroundColor: "#24AEB1" }}
                       onClick={addToCartHandler}
                       className='btn-block'
                       type='button'
@@ -147,8 +162,9 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup>
               </Card>
             </Col>
-          </Row>
+          </div>
           <Row>
+            <Col md={6}></Col>
             <Col md={6}>
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
@@ -198,7 +214,7 @@ const ProductScreen = ({ history, match }) => {
                           onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
-                      <Button
+                      <Button style={{ backgroundColor: "#24AEB1" }}
                         disabled={loadingProductReview}
                         type='submit'
                         variant='primary'

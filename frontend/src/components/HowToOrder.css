@@ -1,0 +1,13 @@
+.order {
+  /* background: "#24AEB1"; */
+  margin: auto;
+  padding: 25px;
+}
+.videos {
+  margin-left: 45%;
+  height: 271px;
+  width: 500px;
+  margin: top 15%;
+
+  cursor: auto;
+}
