@@ -150,6 +150,17 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products);
 });
 
+
+
+// @desc    Get Popular Medicines
+// @route   GET /api/products/popular-medicines
+// @access  Public
+const getPopularMedicines = asyncHandler(async (req, res) => {
+  let products = await Product.find({},{price:1,name:1,brand:1,category:1,createdAt:1,updatedAt:1, _id:0}).limit(50);
+  
+  res.json(products);
+});
+
 export {
   getProducts,
   getProductById,
@@ -158,4 +169,5 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getPopularMedicines
 };
