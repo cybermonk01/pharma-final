@@ -13,14 +13,16 @@ import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import UserListScreen from "./screens/UserListScreen";
-import UserEditScreen from "./screens/UserEditScreen";
-import ProductListScreen from "./screens/ProductListScreen";
-import ProductEditScreen from "./screens/ProductEditScreen";
-import OrderListScreen from "./screens/OrderListScreen";
-import HowToOrder from "./components/HowToOrder";
-import container from "./components/categories/Container";
-import { Box } from "@material-ui/core";
-import { Container } from "react-bootstrap";
+import MedicineScreen from './screens/MedicineScreen';
+import ProductViewScreen from './screens/ProductViewScreen';
+import UserEditScreen from './screens/UserEditScreen';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
+import OrderListScreen from './screens/OrderListScreen';
+import HowToOrder from './components/HowToOrder';
+import container from './components/categories/Container';
+import { Box } from '@material-ui/core';
+import { Container } from 'react-bootstrap';
 
 const App = () => {
   return (
@@ -28,7 +30,7 @@ const App = () => {
       <Header />
       <main
         className="py-3 "
-        style={{ backgroundColor: "#f1f4f6; margin: 0px;" }}
+        style={{ backgroundColor: '#f1f4f6; margin: 0px;' }}
       >
         <Container fluid>
           <Route path="/how-to-order" component={HowToOrder} />
@@ -41,6 +43,16 @@ const App = () => {
           <Route path="/register" component={RegisterScreen} />
           <Route path="/profile" component={ProfileScreen} />
           <Route path="/product" component={container} exact />
+          <Route
+            path="/product/all-products"
+            component={MedicineScreen}
+            exact
+          />
+          <Route
+            path="/product/product-view"
+            component={ProductViewScreen}
+            exact
+          />
           <Box>
             <Route path="/product/:id" component={ProductScreen} exact />
           </Box>
@@ -70,7 +82,7 @@ const App = () => {
         </Container>
       </main>
       <Footer />
-      //{" "}
+      //{' '}
     </Router>
   );
 };
