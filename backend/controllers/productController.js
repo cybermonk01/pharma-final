@@ -156,7 +156,10 @@ const getTopProducts = asyncHandler(async (req, res) => {
 // @route   GET /api/products/popular-medicines
 // @access  Public
 const getPopularMedicines = asyncHandler(async (req, res) => {
-  let products = await Product.find({},{price:1,name:1,brand:1,category:1,createdAt:1,updatedAt:1, _id:0}).limit(50);
+  let products = await Product.find(
+    {},
+    { price: 1, name: 1, brand: 1, category: 1, createdAt: 1, updatedAt: 1 }
+  ).limit(50);
   
   res.json(products);
 });
